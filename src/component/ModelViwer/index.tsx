@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-} from "react";
+import React, { useState, forwardRef, useImperativeHandle } from "react";
 import * as THREE from "three";
 import { Group } from "three";
 
@@ -99,7 +94,7 @@ const Scene = forwardRef<SceneRef>(function (props, ref) {
       // const clips = model.animations || [];
       try {
         const scene = await load({ fileURL, rootPath, file, type, baseURL });
-        console.log(scene);
+        console.log(model, scene);
         setModel(scene);
       } catch (e) {
         console.error(e, "e");
@@ -110,7 +105,7 @@ const Scene = forwardRef<SceneRef>(function (props, ref) {
     [model]
   );
 
-  useImperativeHandle(ref, () => ({ camera, setCamera, loadModel }), [
+  useImperativeHandle(ref, () => ({ camera, setCamera, loadModel, model }), [
     camera,
     setCamera,
     loadModel,

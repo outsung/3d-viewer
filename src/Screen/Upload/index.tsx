@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import * as THREE from "three";
 
 import { CheckBox } from "../../component/CheckBox/index";
 import { TextButton } from "../../component/Buttons";
